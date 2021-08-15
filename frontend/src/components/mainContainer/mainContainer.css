@@ -1,0 +1,147 @@
+.container {
+  width: 100%;
+}
+
+.buttons-temperature {
+  height: 100px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 8%;
+  align-items: flex-end;
+}
+
+.celsius,
+.fahrenheit {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.celsius {
+  background-color: #e7e7eb;
+  color: #110e3c;
+  font-family: Raleway;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.fahrenheit {
+  background-color: #585676;
+  color: #e7e7eb;
+  font-family: Raleway;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.boxClima {
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.BoxInfoClima {
+  width: 120px;
+  height: 177px;
+  background-color: #1e213a;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-family: Raleway;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: center;
+
+  color: #e7e7eb;
+}
+
+.imgBox {
+  height: 62px;
+}
+
+.todayHighLight {
+  height: 57%;
+  display: flex;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Info {
+  font-family: Raleway;
+  width: 328px;
+  margin: 20px;
+  height: 204px;
+  background-color: #1e213a;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.containerHighLight {
+  max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+
+.titleHighLight {
+  font-family: Raleway;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  width: 55%;
+}
+
+h1 {
+  font-family: Raleway;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.statistic {
+  font-family: Raleway;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 75px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  color: white;
+}

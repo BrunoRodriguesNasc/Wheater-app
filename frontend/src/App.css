@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  height: 100%;
+  width: 1660px;
+  background-color: #100e1d;
+  display: flex;
+  margin: 0 auto;
+}

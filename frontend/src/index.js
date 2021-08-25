@@ -4,12 +4,15 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { InfoClimaProvider } from "./context/InfoClimaContext";
+import { LoadingProvider } from "./context/Loading";
 
 ReactDOM.render(
   <InfoClimaProvider>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <LoadingProvider>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </LoadingProvider>
   </InfoClimaProvider>,
   document.getElementById("root")
 );

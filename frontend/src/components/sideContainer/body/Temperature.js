@@ -11,9 +11,9 @@ export default function Temperature({ info }) {
 
   return (
     <div className="InfoTemperature">
-      <Title typeText={"temperatureText"}>{`${
-        now != "" ? parseInt(now[0]) : parseInt(temp)
-      }${temperature.isGraus ? "°C" : "°F"}`}</Title>
+      <Title typeText={"temperatureText"}>{`${parseInt(temp)}${
+        temperature.isGraus ? "°C" : "°F"
+      }`}</Title>
       <Title typeText={"city"}>{title}</Title>
     </div>
   );

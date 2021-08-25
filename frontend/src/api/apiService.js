@@ -4,6 +4,7 @@ import { URL_GET_WOEIRD, URL_GET_ALL_DATA } from "./constants/const";
 async function getWorldId(nameLocation) {
   const res = await axios.get(`${URL_GET_WOEIRD}${nameLocation}`);
 
+  if (res.data.length === 0) return ["error"];
   return getInfoLocations(res.data[0].woeid);
 }
 

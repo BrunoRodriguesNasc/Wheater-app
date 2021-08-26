@@ -5,15 +5,18 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { InfoClimaProvider } from "./context/InfoClimaContext";
 import { LoadingProvider } from "./context/Loading";
+import { TemperatureProvider } from "./context/TemperatureContext";
 
 ReactDOM.render(
-  <InfoClimaProvider>
-    <LoadingProvider>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </LoadingProvider>
-  </InfoClimaProvider>,
+  <TemperatureProvider>
+    <InfoClimaProvider>
+      <LoadingProvider>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </LoadingProvider>
+    </InfoClimaProvider>
+  </TemperatureProvider>,
   document.getElementById("root")
 );
 

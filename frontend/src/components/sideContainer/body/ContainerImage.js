@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import ImageCenter from "./ImageCenter";
+import InfoClimaContext from "../../../context/InfoClimaContext";
 
-export default function ContainerImage({ info }) {
-  const itens =
-    info != "" ? info.consolidated_weather.map((itens) => itens) : [];
+export default function ContainerImage() {
+  const { temperature } = useContext(InfoClimaContext);
+  const { clima } = temperature;
+
+  const itens = clima;
+
+  console.log(temperature);
   return (
     <div className="ImagesClima">
       <div className="clouds"></div>

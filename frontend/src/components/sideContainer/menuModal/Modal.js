@@ -1,25 +1,25 @@
-import React, { useRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import Form from "./Form";
 import Button from "./Button";
 import Select from "./Select";
 
-export default function Modal({ getName, closeModal }) {
-  const divModal = useRef();
+const modal = forwardRef(({ getName, closeModal }, ref) => {
+  const buttonRef = useRef();
 
-  const getNameLocation = (e, value) => {
+  const getNameLocation = (e) => {
     e.preventDefault();
-    getName(value);
-    divModal.current?.classList.remove("active");
+    closeModal();
+    getName(buttonRef.current?.parentElement[0].value);
   };
   return (
-    <div className="modal" ref={divModal}>
+    <div className="modal" ref={ref}>
       <div className="div-close">
-        <Button nameClass="button-close" toDoFunction={closeModal}>
-          X
-        </Button>
+        <Button nameClass="button-close">X</Button>
       </div>
-      <Form eventFunction={getNameLocation}></Form>
+      <Form ref={buttonRef} eventFunction={getNameLocation}></Form>
       <Select></Select>
     </div>
   );
-}
+});
+
+export default modal;

@@ -2,16 +2,15 @@ import React, { useContext } from "react";
 import Title from "./Title";
 import InfoClimaContext from "../../../context/InfoClimaContext";
 
-export default function Temperature({ info }) {
+export default function Temperature() {
   const { temperature } = useContext(InfoClimaContext);
-  const now = temperature.temperature.max;
-  const title =
-    info != "" ? info.consolidated_weather[0].weather_state_name : "Clear";
-  const temp = info != "" ? info.consolidated_weather[0].the_temp : "25°C";
+  const { state_wheater, temp } = temperature;
+  const title = state_wheater ? state_wheater : "Clear";
+  const tempe = temp ? temp : "25°C";
 
   return (
     <div className="InfoTemperature">
-      <Title typeText={"temperatureText"}>{`${parseInt(temp)}${
+      <Title typeText={"temperatureText"}>{`${parseInt(tempe)}${
         temperature.isGraus ? "°C" : "°F"
       }`}</Title>
       <Title typeText={"city"}>{title}</Title>

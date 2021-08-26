@@ -1,32 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import Info from "./Info";
-export default function HighLights({ infoClima }) {
-  const windStatus =
-    infoClima != ""
-      ? parseInt(infoClima.consolidated_weather[0].wind_speed)
-      : "0";
+import InfoClimaContext from "../../../context/InfoClimaContext";
 
-  const humidity =
-    infoClima != "" ? infoClima.consolidated_weather[0].humidity : "0";
+export default function HighLights() {
+  const { temperature } = useContext(InfoClimaContext);
 
-  const visibility =
-    infoClima != ""
-      ? parseInt(infoClima.consolidated_weather[0].visibility)
-      : "0";
+  const { windStatus, humidity, visibility, airPressure } = temperature;
 
-  const airPressure =
-    infoClima != ""
-      ? parseInt(infoClima.consolidated_weather[0].air_pressure)
-      : "0";
+  const windStatusShow = windStatus ? windStatus : "0";
+
+  const humidityShow = humidity ? humidity : "0";
+
+  const visibilityShow = visibility ? visibility : "0";
+
+  const airPressureShow = airPressure ? airPressure : "0";
 
   return (
     <div className="todayHighLight">
       <div className="titleHighLight">Today’s Hightlights</div>
       <div className="containerHighLight">
-        <Info title="Wind status" statistic={`${windStatus} mph`}></Info>
-        <Info title="Humidity" statistic={`${humidity}%`}></Info>
-        <Info title="Visibility" statistic={`${visibility} Miles`}></Info>
-        <Info title="Air Pressure" statistic={`${airPressure} mb`}></Info>
+        <Info title="Wind status" statistic={`${windStatusShow} mph`}></Info>
+        <Info title="Humidity" statistic={`${humidityShow}%`}></Info>
+        <Info title="Visibility" statistic={`${visibilityShow} Miles`}></Info>
+        <Info title="Air Pressure" statistic={`${airPressureShow} mb`}></Info>
       </div>
     </div>
   );

@@ -10,7 +10,11 @@ export default function BoxInfoClima({
   return (
     <div className="BoxInfoClima">
       <div className="title">{date}</div>
-      <img className="imgBox" src={`./${imageBox}.png`}></img>
+      <img
+        className="imgBox"
+        alt="imagem com algum tipo de clima"
+        src={`./${imageBox}.png`}
+      ></img>
       <div
         style={{
           display: "flex",

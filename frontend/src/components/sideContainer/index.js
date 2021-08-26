@@ -5,26 +5,27 @@ import FooterSide from "./footer/FooterSide";
 import "./sideContainer.css";
 import Modal from "./menuModal/Modal";
 
-export default function SideContainer({ getName, info }) {
-  const divModal = useRef(HTMLDivElement);
+export default function SideContainer({ getName }) {
+  const fowardModal = useRef();
 
   const activeModal = () => {
-    console.log(divModal.current?.classList)
-    const modal = document.querySelector(".modal");
-    modal.classList.add("active");
+    fowardModal.current?.classList.add("active");
   };
 
   const closeModal = (e) => {
-    const modal = document.querySelector(".modal");
-    modal.classList.remove("active");
+    fowardModal.current?.classList.remove("active");
   };
 
   return (
     <div className="sideContainer">
-      <Modal ref={divModal} getName={getName} closeModal={closeModal}></Modal>
+      <Modal
+        ref={fowardModal}
+        getName={getName}
+        closeModal={closeModal}
+      ></Modal>
       <HeaderSide activeModal={activeModal}></HeaderSide>
-      <BodySide info={info}></BodySide>
-      <FooterSide info={info}></FooterSide>
+      <BodySide></BodySide>
+      <FooterSide></FooterSide>
     </div>
   );
 }

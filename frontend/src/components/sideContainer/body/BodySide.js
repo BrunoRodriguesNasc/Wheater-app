@@ -2,11 +2,11 @@ import React from "react";
 import ContainerImage from "./ContainerImage";
 import Temperature from "./Temperature";
 
-export default function BodySide({ info }) {
+export default function BodySide() {
   return (
     <div className="bodySide">
-      <ContainerImage info={info}></ContainerImage>
-      <Temperature info={info}></Temperature>
+      <ContainerImage></ContainerImage>
+      <Temperature></Temperature>
     </div>
   );
 }

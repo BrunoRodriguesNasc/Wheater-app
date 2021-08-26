@@ -1,7 +1,9 @@
 import React from "react";
 
-export default function InputModal() {
+const InputModal = () => {
   return (
     <input className="input-search" placeholder={"search location"}></input>
   );
-}
+};
+
+export default InputModal;

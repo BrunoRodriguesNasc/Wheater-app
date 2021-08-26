@@ -1,17 +1,18 @@
-import React,{ useRef } from "react";
+import React, { forwardRef } from "react";
 
-export default function Button({ toDoFunction, nameClass, children, type }) {
-  const ButtonRef = useRef(HTMLButtonElement);
-  return (
-    <button
-      type={type}
-      ref={ButtonRef}
-      className={nameClass}
-      onClick={(e) =>
-        nameClass === "button-close" ? toDoFunction() : toDoFunction(e,ButtonRef.current?.parentElement[0].value)
-      }
-    >
-      {children}
-    </button>
-  );
-}
+const Button = forwardRef(
+  ({ toDoFunction, nameClass, children, type }, ref) => {
+    return (
+      <button
+        type={type}
+        ref={ref}
+        className={nameClass}
+        onClick={(e) => toDoFunction(e)}
+      >
+        {children}
+      </button>
+    );
+  }
+);
+
+export default Button;

@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 
-export default function FooterSide({ info }) {
-  const day =
-    info != ""
-      ? new Date(info.consolidated_weather[0].created).toDateString()
-      : "Fri, 5 Jun";
-  const nameCity = info != "" ? info.title : "Helsinki";
+import InfoClimaContext from "../../../context/InfoClimaContext";
+
+export default function FooterSide() {
+  const { temperature } = useContext(InfoClimaContext);
+  const { created, city } = temperature;
+  const day = created ? new Date(created).toDateString() : "Fri, 5 Jun";
+  const nameCity = city ? city : "Helsinki";
 
   return (
     <div className="footer">

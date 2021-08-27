@@ -8,7 +8,6 @@ export default function ContainerImage() {
 
   const itens = clima;
 
-  console.log(temperature);
   return (
     <div className="ImagesClima">
       <div className="clouds"></div>

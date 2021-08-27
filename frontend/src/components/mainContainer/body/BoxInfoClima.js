@@ -1,19 +1,22 @@
 import React, { useContext } from "react";
-import InfoClimaContext from "../../../context/InfoClimaContext";
+
+import TemperatureContext from "../../../context/TemperatureContext";
 export default function BoxInfoClima({
   date,
   imageBox,
   maxTemperature,
   minTemperature,
 }) {
-  const { temperature } = useContext(InfoClimaContext);
+  const { typeTemper } = useContext(TemperatureContext);
+  const imageJoin = imageBox.split(" ").join("");
+
   return (
     <div className="BoxInfoClima">
       <div className="title">{date}</div>
       <img
         className="imgBox"
         alt="imagem com algum tipo de clima"
-        src={`./${imageBox}.png`}
+        src={`./${imageJoin}.png`}
       ></img>
       <div
         style={{
@@ -23,10 +26,10 @@ export default function BoxInfoClima({
         }}
       >
         <p style={{ color: "#E7E7EB" }}>{`${maxTemperature}${
-          temperature.isGraus ? "°C" : "°F"
+          typeTemper.isGraus ? "°C" : "°F"
         }`}</p>
         <p style={{ color: "#A09FB1" }}>{`${minTemperature}${
-          temperature.isGraus ? "°C" : "°F"
+          typeTemper.isGraus ? "°C" : "°F"
         }`}</p>
       </div>
     </div>

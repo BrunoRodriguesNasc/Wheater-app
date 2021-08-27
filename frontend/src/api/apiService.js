@@ -1,20 +1,18 @@
 import axios from "axios";
-import { URL_GET_WOEIRD, URL_GET_ALL_DATA } from "./constants/const";
 
 async function getWorldId(nameLocation) {
-  const res = await axios.get(`${URL_GET_WOEIRD}${nameLocation}`);
+  const res = await axios.get(`http://localhost:3333/search/${nameLocation}`);
 
-  if (res.data.length === 0) return ["error"];
-  return getInfoLocations(res.data[0].woeid);
+  return await getInfoLocations(res.data[0].woeid);
 }
 
-async function getInfoLocations(worldId) {
-  const res = await axios.get(`${URL_GET_ALL_DATA}${worldId}/`);
+async function getInfoLocations(woeid) {
+  const res = await axios.get(`http://localhost:3333/location/${woeid}`);
 
-  return prepareData(res.data);
+  return await prepareData(res.data);
 }
 
-function prepareData(data) {
+async function prepareData(data) {
   const { consolidated_weather, title } = data;
 
   const preparedData = {

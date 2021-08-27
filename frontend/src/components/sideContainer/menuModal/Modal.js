@@ -8,16 +8,18 @@ const modal = forwardRef(({ getName, closeModal }, ref) => {
 
   const getNameLocation = (e) => {
     e.preventDefault();
-    closeModal();
+    closeModal(e);
     getName(buttonRef.current?.parentElement[0].value);
   };
   return (
     <div className="modal" ref={ref}>
       <div className="div-close">
-        <Button nameClass="button-close">X</Button>
+        <Button toDoFunction={closeModal} nameClass="button-close">
+          X
+        </Button>
       </div>
       <Form ref={buttonRef} eventFunction={getNameLocation}></Form>
-      <Select></Select>
+      {/* <Select></Select> */}
     </div>
   );
 });

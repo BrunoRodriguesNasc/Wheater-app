@@ -15,15 +15,14 @@ export default function Container() {
   const setFahrenheit = () => {
     if (isGraus) {
       const max = clima.map((temp) => {
-        return (temp.max_temp * 9) / 5 + 32;
+        return temp.max_temp * 1.8 + 32;
       });
 
       const min = clima.map((temp) => {
-        return (temp.min_temp * 9) / 5 + 32;
+        return temp.max_temp * 1.8 + 32;
       });
 
       setTypeTemper({ isGraus: false, max: max, min: min });
-      console.log(typeTemper);
     }
     return;
   };
@@ -31,15 +30,14 @@ export default function Container() {
   const setCelsius = () => {
     if (!isGraus) {
       const max = clima.map((temp) => {
-        return ((temp.max_temp - 32) * 5) / 9;
+        return temp.max_temp;
       });
 
       const min = clima.map((temp) => {
-        return ((temp.min_temp - 32) * 5) / 9;
+        return temp.min_temp;
       });
 
       setTypeTemper({ isGraus: true, max: max, min: min });
-      console.log(typeTemper);
     }
     return;
   };
@@ -49,7 +47,7 @@ export default function Container() {
         <div className="celsius" onClick={() => setCelsius()}>
           C
         </div>
-        <div className="fahrenheit" onClick={(e) => setFahrenheit(e)}>
+        <div className="fahrenheit" onClick={() => setFahrenheit()}>
           F
         </div>
       </div>

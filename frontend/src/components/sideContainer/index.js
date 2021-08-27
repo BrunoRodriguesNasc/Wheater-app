@@ -12,7 +12,7 @@ export default function SideContainer({ getName }) {
     fowardModal.current?.classList.add("active");
   };
 
-  const closeModal = (e) => {
+  const closeModal = () => {
     fowardModal.current?.classList.remove("active");
   };
 

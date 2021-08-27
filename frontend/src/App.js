@@ -18,10 +18,6 @@ function App() {
     const infoLocation = await getWorldId(nameLocation);
     setInfo(infoLocation);
 
-    setTypeTemper({
-      isGraus:true,
-      max:
-    })
     setTemp({
       ...infoLocation,
     });

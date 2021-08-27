@@ -1,8 +1,9 @@
 import React, { createContext, useState } from "react";
 
 const DEFAULT_VALUE = {
-  min: 0,
-  max: 0,
+  isGraus: true,
+  min: [],
+  max: [],
 };
 
 const TemperatureContext = createContext(DEFAULT_VALUE);

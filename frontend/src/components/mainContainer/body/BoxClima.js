@@ -6,28 +6,21 @@ import BoxInfoClima from "./BoxInfoClima";
 export default function BoxClima() {
   const { temperature } = useContext(InfoClimaContext);
   const { typeTemper } = useContext(TemperatureContext);
-  const { clima } = temperature;
-
-  const box = clima
-    ? clima.map((itens, index) => {
+  const { forecast } = temperature;
+  return (
+    <div className="boxClima">{
+      !!forecast > 0 &&
+      forecast.map(wheater => {
         return (
           <BoxInfoClima
-            date={new Date(itens.applicable_date).toDateString()}
-            imageBox={itens.weather_state_name}
-            maxTemperature={parseInt(
-              typeTemper.max.length > 0
-                ? typeTemper.max[index]
-                : clima[index].max_temp
-            )}
-            minTemperature={parseInt(
-              typeTemper.min.length > 0
-                ? typeTemper.min[index]
-                : clima[index].min_temp
-            )}
-            key={itens.id}
+            data={wheater.date}
+            icon={wheater.icon}
+            maxTemperature={typeTemper.isGraus ? `${wheater.maxTemperatureC}°C`  : `${wheater.maxTemperatureF}°F`}
+            minTemperature={typeTemper.isGraus ? `${wheater.minTemperatureC}°C` :  `${wheater.minTemperatureF}°F`}
+            key={wheater.date}
           ></BoxInfoClima>
         );
       })
-    : "";
-  return <div className="boxClima">{box}</div>;
+    }</div>
+  )
 }

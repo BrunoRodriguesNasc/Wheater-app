@@ -10,45 +10,27 @@ export default function Container() {
   const { typeTemper, setTypeTemper } = useContext(TemperatureContext);
   const { isGraus } = typeTemper;
   const { temperature } = useContext(InfoClimaContext);
-  const { clima } = temperature;
 
   const setFahrenheit = () => {
     if (isGraus) {
-      const max = clima.map((temp) => {
-        return temp.max_temp * 1.8 + 32;
-      });
-
-      const min = clima.map((temp) => {
-        return temp.max_temp * 1.8 + 32;
-      });
-
-      setTypeTemper({ isGraus: false, max: max, min: min });
+      setTypeTemper({ isGraus: false, max: temperature.forecast[0].maxTemperatureF, min: temperature.forecast[0].minTemperatureF })
     }
-    return;
   };
 
   const setCelsius = () => {
     if (!isGraus) {
-      const max = clima.map((temp) => {
-        return temp.max_temp;
-      });
-
-      const min = clima.map((temp) => {
-        return temp.min_temp;
-      });
-
-      setTypeTemper({ isGraus: true, max: max, min: min });
+      setTypeTemper({ isGraus: true, max: temperature.forecast[0].maxTemperatureC, min: temperature.forecast[0].minTemperatureC })
     }
-    return;
   };
+
   return (
     <div className="container">
-      <div className="buttons-temperature">
+      <div className="buttonsTemperature">
         <div className="celsius" onClick={() => setCelsius()}>
-          C
+          °C
         </div>
         <div className="fahrenheit" onClick={() => setFahrenheit()}>
-          F
+          °F
         </div>
       </div>
       <BoxClima></BoxClima>

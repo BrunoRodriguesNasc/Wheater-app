@@ -1,7 +1,6 @@
 import React, { forwardRef, useRef } from "react";
 import Form from "./Form";
 import Button from "./Button";
-import Select from "./Select";
 
 const modal = forwardRef(({ getName, closeModal }, ref) => {
   const buttonRef = useRef();

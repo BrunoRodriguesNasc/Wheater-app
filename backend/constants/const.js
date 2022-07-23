@@ -1,4 +1,3 @@
 module.exports = URL = {
-  URL_GET_WOEIRD: "https://www.metaweather.com/api/location/search/?query=",
-  URL_GET_ALL_DATA: "https://www.metaweather.com/api/location/",
+  URL_GET_WHEATER_CITY: "http://api.weatherapi.com/v1/forecast.json?key=e86999eb9bd54a20885131735222307&q=",
 };

@@ -4,14 +4,10 @@ import InfoClimaContext from "../../../context/InfoClimaContext";
 
 export default function ContainerImage() {
   const { temperature } = useContext(InfoClimaContext);
-  const { clima } = temperature;
-
-  const itens = clima;
-
   return (
     <div className="ImagesClima">
       <div className="clouds"></div>
-      <ImageCenter infoImage={itens}></ImageCenter>
+      <ImageCenter image={temperature.icon}></ImageCenter>
     </div>
   );
 }

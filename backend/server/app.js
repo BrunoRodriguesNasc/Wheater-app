@@ -1,41 +1,9 @@
 const express = require("express");
-const axios = require("axios");
 const app = express();
 const cors = require("cors");
-const URL = require("../constants/const");
+const wheater = require('../router/wheater.js');
+const bodyParser = require("body-parser");
 
-app.listen(3333);
-
+app.use('/wheater', wheater);
 app.use(cors());
-app.get("/search/:city", async (req, res) => {
-  const response = await axios
-    .get(
-      `https://www.metaweather.com/api/location/search/?query=${req.params.city}`
-    )
-    .then(function (response) {
-      return response.data;
-    })
-    .catch(function (error) {
-      if (error) {
-        console.log(error);
-      }
-    });
-
-  console.log(response);
-  return res.send(response);
-});
-
-app.get("/location/:woeid", async (req, res) => {
-  const response = await axios
-    .get(`https://www.metaweather.com/api/location/${req.params.woeid}`)
-    .then(function (response) {
-      return response.data;
-    })
-    .catch(function (error) {
-      if (error) {
-        console.log(error);
-      }
-    });
-  console.log(response);
-  return res.send(response);
-});
+app.listen(3333);

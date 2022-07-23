@@ -217,3 +217,46 @@
 option {
   background-color: #1e213a;
 }
+
+
+@media screen and (max-width: 400px) {
+
+  .sideContainer {
+    height: 810px;
+  }
+
+  .headerSide {
+    width: 100vw;
+    align-items: center;
+  }
+
+  .clouds {
+    background-size: contain;
+    height: 100%;
+    position: relative;
+    transform: scale(1.5);
+    left: -3rem;
+  }
+
+  .bodySide {
+    margin-top: 2rem;
+    height: 60%;
+  }
+
+  .ImageCenter {
+    bottom: 100%;
+  }
+
+  .ImagesClima {
+    height: 60%;
+  }
+
+  .InfoTemperature {
+    width: 100vw;
+  }
+  
+  .footer {
+    width: 100vw;
+    height: 20%;
+  }
+}

@@ -6,9 +6,16 @@
 }
 
 .App {
-  height: 100%;
-  width: 1660px;
+  height: 100vh;
   background-color: #100e1d;
   display: flex;
   margin: 0 auto;
+}
+
+
+@media screen and (max-width: 400px) {
+  .App {
+    height: 100%;
+    flex-direction: column;
+  }
 }

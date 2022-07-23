@@ -1,45 +1,34 @@
-import React, { useContext, useState, useEffect } from "react";
+
+import React, { useContext, useState, useEffect, useCallback } from "react";
 import InfoClimaContext from "./context/InfoClimaContext";
 import LoadingContext from "./context/Loading";
-import TemperatureContext from "./context/TemperatureContext";
 import Loading from "./components/loading/Loading";
-import { getWorldId } from "./api/apiService";
+import { getWheater } from "./api/apiService";
 import SideContainer from "./components/sideContainer/index";
 import Container from "./components/mainContainer/index";
 import "./App.css";
 
 function App() {
-  const [infoClima, setInfo] = useState("London");
-  const { temperature, setTemp } = useContext(InfoClimaContext);
-  const { typeTemper, setTypeTemper } = useContext(TemperatureContext);
+  const [city, setCity] = useState("London");
+  const { setTemp } = useContext(InfoClimaContext);
   const { loading, setLoading } = useContext(LoadingContext);
 
-  async function allInfo(nameLocation) {
-    const infoLocation = await getWorldId(nameLocation);
-    setInfo(infoLocation);
-
-    setTemp({
-      ...infoLocation,
-    });
-  }
+  const fetchData = useCallback(async () => {
+    const { data } = await getWheater(city, 5);
+    setTemp(data);
+    setLoading(false);
+  }, [city, setTemp]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await allInfo(infoClima);
-      setLoading(false);
-      return response;
-    };
-    fetchData();
-  }, []);
-
-  const getName = (name) => {
-    allInfo(name);
-  };
+    fetchData()
+      .catch(console.error);
+  }, [fetchData, setLoading])
 
   if (loading) return <Loading></Loading>;
+
   return (
     <div className="App">
-      <SideContainer getName={getName}></SideContainer>
+      <SideContainer getName={setCity}></SideContainer>
       <Container></Container>
     </div>
   );

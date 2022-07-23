@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
-
 import InfoClimaContext from "../../../context/InfoClimaContext";
+import { getDayOfWeek, getMonthNumberToString } from "../../../helpers/date";
 
 export default function FooterSide() {
   const { temperature } = useContext(InfoClimaContext);
-  const { created, city } = temperature;
-  const day = created ? new Date(created).toDateString() : "Fri, 5 Jun";
+  const { city } = temperature;
+  const day = new Date(temperature?.forecast[0].date);
   const nameCity = city ? city : "Helsinki";
+
 
   return (
     <div className="footer">
@@ -19,7 +20,7 @@ export default function FooterSide() {
         }}
       >
         <p>Today</p>
-        <p>{day}</p>
+        <p>{getDayOfWeek(day)}. {day.getUTCDate()}.{getMonthNumberToString(day)}</p>
       </div>
       <div
         className="footer-bot"

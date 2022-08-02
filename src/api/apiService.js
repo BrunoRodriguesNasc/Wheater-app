@@ -1,7 +1,7 @@
 import axios from "axios";
 
 async function getWheater(city, days) {
-  const res = await axios.get(`http://localhost:3333/wheater/${city}/${days}`);
+  const res = await axios.get(`https://wheater-app-bruno.herokuapp.com/wheater/${city}/${days}`);
   return res;
 }
 

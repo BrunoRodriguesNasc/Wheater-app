@@ -4,10 +4,10 @@ Esse app é um protótipo de um site que mostra a previsão de tempo de certos p
 o site que possui todas as localidades está aqui embaixo.
 
 ```
-https://www.metaweather.com/map
+https://wheater-br.netlify.app/
 ```
 
-##Tecnologias usadas
+## Tecnologias usadas
 
 1. React
 2. Javascript
